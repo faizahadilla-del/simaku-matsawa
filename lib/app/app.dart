@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import '../features/dashboard/presentation/dashboard_page.dart';
+
+import '../features/auth/presentation/login_page.dart';
 import 'theme.dart';
 
 class SimakuApp extends StatelessWidget {
@@ -11,7 +12,7 @@ class SimakuApp extends StatelessWidget {
       title: 'SIMAKU MATSAWA',
       debugShowCheckedModeBanner: false,
       theme: AppTheme.lightTheme,
-      home: const DashboardPage(),
+      home: const LoginPage(),
     );
   }
 }

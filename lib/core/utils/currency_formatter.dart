@@ -1,0 +1,19 @@
+import 'package:intl/intl.dart';
+
+/// =======================================================
+/// Currency Formatter
+/// =======================================================
+
+class CurrencyFormatter {
+  CurrencyFormatter._();
+
+  static String format(num value) {
+    final formatter = NumberFormat.currency(
+      locale: "id_ID",
+      symbol: "Rp",
+      decimalDigits: 0,
+    );
+
+    return formatter.format(value);
+  }
+}
