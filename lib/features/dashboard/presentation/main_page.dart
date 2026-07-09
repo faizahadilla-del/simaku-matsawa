@@ -27,7 +27,7 @@ class _MainPageState extends State<MainPage> {
         return const DashboardHome();
 
       case 1:
-  return const UsersPage();
+  return UsersPage();
 
       case 2:
         return const Center(
