@@ -3,30 +3,65 @@ import 'package:flutter/material.dart';
 import '../data/user_repository.dart';
 import '../domain/user_model.dart';
 import 'add_user_dialog.dart';
-
 import 'widgets/user_header.dart';
 import 'widgets/user_search_bar.dart';
 import 'widgets/users_table.dart';
 
-class UsersPage extends StatelessWidget {
-  UsersPage({super.key});
+class UsersPage extends StatefulWidget {
+  const UsersPage({super.key});
 
-  final List<UserModel> users = UserRepository.getAll();
+  @override
+  State<UsersPage> createState() => _UsersPageState();
+}
+
+class _UsersPageState extends State<UsersPage> {
+  List<UserModel> users = [];
+
+  @override
+  void initState() {
+    super.initState();
+    _reloadUsers();
+  }
+
+  void _reloadUsers() {
+    users = List<UserModel>.from(UserRepository.getAll());
+
+    print("Reload Users");
+    print("Jumlah user : ${users.length}");
+
+    for (final user in users) {
+      print("${user.fullName} - ${user.username}");
+    }
+  }
+
+  Future<void> _addUser() async {
+    print("Tombol Tambah Pengguna diklik");
+
+    final result = await showDialog<bool>(
+      context: context,
+      builder: (_) => const AddUserDialog(),
+    );
+
+    print("Dialog ditutup");
+    print("Result = $result");
+
+    if (result == true) {
+      print("Memanggil reload...");
+
+      setState(() {
+        _reloadUsers();
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(24),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           UserHeader(
-            onAdd: () {
-              showDialog(
-                context: context,
-                builder: (_) => const AddUserDialog(),
-              );
-            },
+            onAdd: _addUser,
           ),
 
           const SizedBox(height: 20),

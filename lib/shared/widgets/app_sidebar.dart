@@ -26,12 +26,13 @@ class AppSidebar extends StatelessWidget {
         title,
         style: TextStyle(
           color: selected ? Colors.green : Colors.black87,
-          fontWeight: selected ? FontWeight.bold : FontWeight.normal,
+          fontWeight:
+              selected ? FontWeight.bold : FontWeight.normal,
         ),
       ),
       tileColor: selected
-    ? Colors.green.withValues(alpha: 0.08)
-    : null,
+          ? Colors.green.withValues(alpha: 0.08)
+          : null,
       onTap: () => onMenuSelected(index),
     );
   }
@@ -52,116 +53,120 @@ class AppSidebar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 270,
+    return Material(
       color: Colors.white,
-      child: ListView(
-        children: [
-          const SizedBox(height: 24),
+      child: SizedBox(
+        width: 270,
+        child: ListView(
+          children: [
+            const SizedBox(height: 24),
 
-          const Icon(
-            Icons.account_balance,
-            size: 60,
-            color: Color(0xFF0B8F3A),
-          ),
+            const Icon(
+              Icons.account_balance,
+              size: 60,
+              color: Color(0xFF0B8F3A),
+            ),
 
-          const SizedBox(height: 10),
+            const SizedBox(height: 10),
 
-          const Center(
-            child: Text(
-              "SIMAKU MATSAWA",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+            const Center(
+              child: Text(
+                "SIMAKU MATSAWA",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
-          ),
 
-          const Center(
-            child: Text(
-              "Sistem Manajemen Keuangan",
-              style: TextStyle(color: Colors.grey),
+            const Center(
+              child: Text(
+                "Sistem Manajemen Keuangan",
+                style: TextStyle(
+                  color: Colors.grey,
+                ),
+              ),
             ),
-          ),
 
-          const Divider(height: 32),
+            const Divider(height: 32),
 
-          menuItem(
-            index: 0,
-            icon: Icons.dashboard,
-            title: "Dashboard",
-          ),
+            menuItem(
+              index: 0,
+              icon: Icons.dashboard,
+              title: "Dashboard",
+            ),
 
-          menuTitle("DATA MASTER"),
+            menuTitle("DATA MASTER"),
 
-          menuItem(
-            index: 1,
-            icon: Icons.people,
-            title: "Pengguna",
-          ),
+            menuItem(
+              index: 1,
+              icon: Icons.people,
+              title: "Pengguna",
+            ),
 
-          menuItem(
-            index: 2,
-            icon: Icons.school,
-            title: "Siswa",
-          ),
+            menuItem(
+              index: 2,
+              icon: Icons.school,
+              title: "Siswa",
+            ),
 
-          menuItem(
-            index: 3,
-            icon: Icons.class_,
-            title: "Kelas",
-          ),
+            menuItem(
+              index: 3,
+              icon: Icons.class_,
+              title: "Kelas",
+            ),
 
-          menuItem(
-            index: 4,
-            icon: Icons.calendar_month,
-            title: "Tahun Pelajaran",
-          ),
+            menuItem(
+              index: 4,
+              icon: Icons.calendar_month,
+              title: "Tahun Pelajaran",
+            ),
 
-          menuItem(
-            index: 5,
-            icon: Icons.payments,
-            title: "Jenis Pembayaran",
-          ),
+            menuItem(
+              index: 5,
+              icon: Icons.payments,
+              title: "Jenis Pembayaran",
+            ),
 
-          menuTitle("TRANSAKSI"),
+            menuTitle("TRANSAKSI"),
 
-          menuItem(
-            index: 6,
-            icon: Icons.point_of_sale,
-            title: "Pembayaran",
-          ),
+            menuItem(
+              index: 6,
+              icon: Icons.point_of_sale,
+              title: "Pembayaran",
+            ),
 
-          menuItem(
-            index: 7,
-            icon: Icons.money_off,
-            title: "Pengeluaran",
-          ),
+            menuItem(
+              index: 7,
+              icon: Icons.money_off,
+              title: "Pengeluaran",
+            ),
 
-          menuTitle("LAPORAN"),
+            menuTitle("LAPORAN"),
 
-          menuItem(
-            index: 8,
-            icon: Icons.bar_chart,
-            title: "Laporan",
-          ),
+            menuItem(
+              index: 8,
+              icon: Icons.bar_chart,
+              title: "Laporan",
+            ),
 
-          menuTitle("PENGATURAN"),
+            menuTitle("PENGATURAN"),
 
-          menuItem(
-            index: 9,
-            icon: Icons.settings,
-            title: "Pengaturan",
-          ),
+            menuItem(
+              index: 9,
+              icon: Icons.settings,
+              title: "Pengaturan",
+            ),
 
-          const Divider(),
+            const Divider(),
 
-          menuItem(
-            index: 10,
-            icon: Icons.logout,
-            title: "Logout",
-          ),
-        ],
+            menuItem(
+              index: 10,
+              icon: Icons.logout,
+              title: "Logout",
+            ),
+          ],
+        ),
       ),
     );
   }

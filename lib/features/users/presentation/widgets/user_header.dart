@@ -10,16 +10,13 @@ class UserHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        const Spacer(),
-
-        ElevatedButton.icon(
-          onPressed: onAdd,
-          icon: const Icon(Icons.add),
-          label: const Text("Tambah Pengguna"),
-        ),
-      ],
+    return Align(
+      alignment: Alignment.centerRight,
+      child: ElevatedButton.icon(
+        onPressed: onAdd,
+        icon: const Icon(Icons.add),
+        label: const Text("Tambah Pengguna"),
+      ),
     );
   }
 }
